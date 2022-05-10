@@ -32,6 +32,13 @@ public class NAryTreeProgram {
         tree.insert(tree.getRoot(), 'b', 'f');
         tree.insert(tree.getRoot(), 'c', 'g');
 
+        System.out.println("Tree");
         tree.printTree();
+
+        System.out.println("\n\nParents");
+        tree.printParents(tree.getRoot());
+
+        System.out.println("\n\nChildren");
+        tree.printChildren(tree.getRoot());
     }
 }
