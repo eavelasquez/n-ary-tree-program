@@ -33,8 +33,26 @@ public class NAryTreeGLL implements NAryTree {
     }
 
     @Override
-    public void print(Node temp) {
-        // TODO Auto-generated method stub
+    public void printTree() {
+        if (this.isEmpty(this.root)) {
+            System.out.println("Tree is empty");
+            return;
+        }
+
+        printTree(this.root);
+    }
+
+    @Override
+    public void printTree(Node temp) {
+        while (temp != null) {
+            if (temp.getFlag() == 0) {
+                System.out.println("The data is: " + temp.getData());
+            } else {
+                printTree(temp.getDown());
+            }
+
+            temp = temp.getNext();
+        }
     }
 
     @Override
@@ -120,7 +138,6 @@ public class NAryTreeGLL implements NAryTree {
 
     @Override
     public boolean isEmpty(Node temp) {
-        // TODO Auto-generated method stub
-        return false;
+        return temp == null;
     }
 }
