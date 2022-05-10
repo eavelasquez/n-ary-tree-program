@@ -7,7 +7,9 @@ package narytreeprogram;
  */
 public interface NAryTree {
 
-    public void print(Node temp);
+    public void printTree();
+
+    public void printTree(Node temp);
 
     public void insert(char data);
 
