@@ -19,9 +19,15 @@ public class NAryTreeGLL implements NAryTree {
     private int degree, height;
 
     public NAryTreeGLL() {
-        degree = 0;
-        height = 0;
-        root = null;
+        this.degree = 0;
+        this.height = 0;
+        this.root = null;
+    }
+
+    public NAryTreeGLL(char data) {
+        this.degree = 0;
+        this.height = 0;
+        this.root = new Node(data);
     }
 
     public Node getRoot() {
