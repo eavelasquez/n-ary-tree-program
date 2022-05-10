@@ -63,12 +63,52 @@ public class NAryTreeGLL implements NAryTree {
 
     @Override
     public void insert(char data) {
-        // TODO Auto-generated method stub
+        if (this.isEmpty(this.root)) {
+            this.root = new Node(0, data, null, null);
+            this.degree++;
+            this.height++;
+        }
     }
 
     @Override
     public void insert(Node temp, char parent, char data) {
-        // TODO Auto-generated method stub
+        Node start = temp, nextNode = null, newNode = null;
+
+        while (start != null) {
+            if (start.getFlag() == 0) {
+                if (start.getData() == parent) {
+                    newNode = new Node(data);
+
+                    if (start == temp) {
+                        nextNode = this.getLastLeaf(start);
+                        nextNode.setNext(newNode);
+
+                        this.degree++;
+                    } else {
+                        nextNode = new Node(0, start.getData(), newNode, null);
+
+                        start.setFlag(1);
+                        start.setData('\0');
+                        start.setDown(nextNode);
+
+                        this.degree++;
+                        this.height++;
+                    }
+                }
+            } else {
+                insert(start.getDown(), parent, data);
+            }
+
+            start = start.getNext();
+        }
+    }
+
+    public Node getLastLeaf(Node temp) {
+        while (temp.getNext() != null) {
+            temp = temp.getNext();
+        }
+
+        return temp;
     }
 
     @Override
