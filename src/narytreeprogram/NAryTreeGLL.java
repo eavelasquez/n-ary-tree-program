@@ -50,10 +50,17 @@ public class NAryTreeGLL implements NAryTree {
 
     @Override
     public void printTree(Node temp) {
+        Node parent = temp;
+
         while (temp != null) {
             if (temp.getFlag() == 0) {
-                System.out.println("The data is: " + temp.getData());
+                String str = temp != parent
+                    ? "Parent " + parent.getData() + " - Child " + temp.getData()
+                    : "Parent " + parent.getData();
+
+                System.out.println(str);
             } else {
+                System.out.println("Parent " + parent.getData() + " - Child " + temp.getDown().getData());
                 printTree(temp.getDown());
             }
 
