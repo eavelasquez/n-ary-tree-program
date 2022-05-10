@@ -130,12 +130,32 @@ public class NAryTreeGLL implements NAryTree {
 
     @Override
     public void printParents(Node temp) {
-        // TODO Auto-generated method stub
+        Node parent = temp;
+
+        while (temp != null) {
+            if (parent == temp) {
+                System.out.println("Parent " + parent.getData());
+            } else {
+                printParents(temp.getDown());
+            }
+
+            temp = temp.getNext();
+        }
     }
 
     @Override
     public void printChildren(Node temp) {
-        // TODO Auto-generated method stub
+        Node parent = temp;
+
+        while (temp != null) {
+            if (temp.getFlag() == 0 && parent != temp) {
+                System.out.println("Child " + temp.getData());
+            } else {
+                printChildren(temp.getDown());
+            }
+
+            temp = temp.getNext();
+        }
     }
 
     @Override
