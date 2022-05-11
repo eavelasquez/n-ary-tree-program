@@ -25,7 +25,9 @@ public interface NAryTree {
 
     public void printChildren(Node temp);
 
-    public void countLeaves(Node temp);
+    public void countLeaves();
+
+    public int countLeaves(Node temp);
 
     public void printTreeDegree(Node temp, char data);
 

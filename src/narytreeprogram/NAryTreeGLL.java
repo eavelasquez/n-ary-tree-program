@@ -178,8 +178,31 @@ public class NAryTreeGLL implements NAryTree {
     }
 
     @Override
-    public void countLeaves(Node temp) {
-        // TODO Auto-generated method stub
+    public void countLeaves() {
+        if (this.isEmpty(this.root)) {
+            System.out.println("Tree is empty");
+            return;
+        }
+
+        int count = countLeaves(this.root);
+        System.out.println("Number of leaves: " + count);
+    }
+
+    @Override
+    public int countLeaves(Node temp) {
+        int count = 0;
+
+        while (temp != null) {
+            if (this.isLeaf(temp)) {
+                count++;
+            } else {
+                count += countLeaves(temp.getDown());
+            }
+
+            temp = temp.getNext();
+        }
+
+        return count;
     }
 
     @Override
@@ -224,8 +247,7 @@ public class NAryTreeGLL implements NAryTree {
 
     @Override
     public boolean isLeaf(Node temp) {
-        // TODO Auto-generated method stub
-        return false;
+        return temp.getFlag() == 0;
     }
 
     @Override

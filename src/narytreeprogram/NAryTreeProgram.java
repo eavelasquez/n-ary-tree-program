@@ -43,5 +43,8 @@ public class NAryTreeProgram {
 
         System.out.print("\n\nSearch 'g': ");
         tree.search('g');
+
+        System.out.print("\n\nCount leaves: ");
+        tree.countLeaves();
     }
 }
