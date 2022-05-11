@@ -109,4 +109,18 @@ public class Node {
     public void setDown(Node down) {
         this.down = down;
     }
+
+    /**
+     * Returns the last node of the linked list.
+     *
+     * @param temp the first node of the linked list.
+     * @return the last node of the linked list.
+     */
+    public static Node getLastNode(Node temp) {
+        while (temp.getNext() != null) {
+            temp = temp.getNext();
+        }
+
+        return temp;
+    }
 }

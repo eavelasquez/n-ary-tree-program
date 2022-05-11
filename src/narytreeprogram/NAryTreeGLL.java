@@ -87,7 +87,7 @@ public class NAryTreeGLL implements NAryTree {
                     newNode = new Node(data);
 
                     if (start == temp) {
-                        nextNode = this.getLastLeaf(start);
+                        nextNode = Node.getLastNode(start);
                         nextNode.setNext(newNode);
                     } else {
                         nextNode = new Node(0, start.getData(), newNode, null);
@@ -106,14 +106,6 @@ public class NAryTreeGLL implements NAryTree {
 
             start = start.getNext();
         }
-    }
-
-    public Node getLastLeaf(Node temp) {
-        while (temp.getNext() != null) {
-            temp = temp.getNext();
-        }
-
-        return temp;
     }
 
     @Override
