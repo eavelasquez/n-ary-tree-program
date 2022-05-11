@@ -124,8 +124,27 @@ public class NAryTreeGLL implements NAryTree {
     }
 
     @Override
-    public void search(Node temp, char data) {
-        // TODO Auto-generated method stub
+    public void search(char data) {
+        if (this.isEmpty(this.root)) {
+            System.out.println("Tree is empty");
+            return;
+        }
+
+        boolean isFound = search(this.root, data);
+        System.out.println(isFound ? "Found" : "Not found");
+    }
+
+    @Override
+    public boolean search(Node temp, char data) {
+        boolean isFound = false;
+
+        while (temp != null && isFound != true) {
+            isFound = temp.getData() == data ? true : search(temp.getDown(), data);
+
+            temp = temp.getNext();
+        }
+
+        return isFound;
     }
 
     @Override

@@ -17,7 +17,9 @@ public interface NAryTree {
 
     public void delete(Node temp, char data);
 
-    public void search(Node temp, char data);
+    public void search(char data);
+
+    public boolean search(Node temp, char data);
 
     public void printParents(Node temp);
 

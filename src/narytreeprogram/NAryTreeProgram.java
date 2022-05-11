@@ -40,5 +40,8 @@ public class NAryTreeProgram {
 
         System.out.println("\n\nChildren");
         tree.printChildren(tree.getRoot());
+
+        System.out.print("\n\nSearch 'g': ");
+        tree.search('g');
     }
 }
